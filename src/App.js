@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { useTitleInput } from "./hooks/useTitleInput";
+import Counter from "./Counter";
 
 const App = () => {
   const [name, setName] = useTitleInput("");
@@ -12,6 +13,7 @@ const App = () => {
       </h1>
       <input type="text" onChange={e => setName(e.target.value)} value={name} />
       {name}
+      <Counter />
     </div>
   );
 };
