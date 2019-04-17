@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useTitleInput } from "./hooks/useTitleInput";
 import Counter from "./Counter";
+import ReverseWord from "./ReverseWord";
 
 const App = () => {
   const [name, setName] = useTitleInput("");
@@ -12,7 +13,8 @@ const App = () => {
         Level Up Dishes
       </h1>
       <input type="text" onChange={e => setName(e.target.value)} value={name} />
-      {name}
+      <div>{name}</div>
+      <ReverseWord value={name} />
       <Counter />
     </div>
   );
