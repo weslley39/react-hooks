@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { useTitleInput } from "./hooks/useTitleInput";
+import { useSpring, animated } from "react-spring";
 import Counter from "./Counter";
 import ReverseWord from "./ReverseWord";
 import Toggle from "./Toogle";
@@ -17,15 +18,20 @@ const App = () => {
     setDishes(data);
   };
 
+  const animatedProps = useSpring({ opacity: 1, from: { opacity: 0 } });
+
   useEffect(() => {
     fetchDishes();
   }, []); //[] will simulate componentDidMount
 
   return (
     <div className="main-wrapper" ref={ref}>
-      <h1 onClick={() => ref.current.classList.add("new-fake-class")}>
+      <animated.h1
+        props={animatedProps}
+        onClick={() => ref.current.classList.add("new-fake-class")}
+      >
         Level Up Dishes
-      </h1>
+      </animated.h1>
       <Toggle />
       <input type="text" onChange={e => setName(e.target.value)} value={name} />
       <div>{name}</div>
