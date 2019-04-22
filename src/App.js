@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { useTitleInput } from "./hooks/useTitleInput";
 import Counter from "./Counter";
 import ReverseWord from "./ReverseWord";
+import Toggle from "./Toogle";
 
 const App = () => {
   const [name, setName] = useTitleInput("");
@@ -25,6 +26,7 @@ const App = () => {
       <h1 onClick={() => ref.current.classList.add("new-fake-class")}>
         Level Up Dishes
       </h1>
+      <Toggle />
       <input type="text" onChange={e => setName(e.target.value)} value={name} />
       <div>{name}</div>
       <ReverseWord value={name} />
